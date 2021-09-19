@@ -1,9 +1,12 @@
 import Login from './components/login/login';
 import React from 'react';
+import styles from './app.module.css';
 
 const App = ({authService}) => {
   return (
-    <Login authService={authService}/>
+    <div className={styles.app}>
+      <Login authService={authService}/>
+    </div>
   );
 }
 
