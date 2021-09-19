@@ -1,4 +1,4 @@
-@value makerGreen, makerWhite from '../../common/colors.css';
+@value makerBlack, makerGreen, makerWhite from '../../common/colors.css';
 
 .header {
   width: 100%;
@@ -22,7 +22,7 @@
   /* 상대의 부모가 static이 아닌 것 */
   right: 3em;
   top: 1em;
-  padding: 0.8em;
+  padding: 0.5em;
   border-radius: 20%;
   background-color: makerBlack;
   color: makerWhite;
