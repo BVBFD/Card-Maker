@@ -1,0 +1,37 @@
+@value mediaQuery from '../../common/size.css';
+
+.maker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  /* 비어있는 공간 중간에 여백 가득 채우게 해라 */
+
+  /* flex: 1 */
+  /* flex-grow: 1; flex-shrink: 1; flex-basis: 0%; */
+
+  /* flex: 1 1 auto; */
+  /* flex-grow: 1; flex-shrink: 1; flex-basis: auto; */
+
+  /* flex: 1 500px; */
+  /* flex-grow: 1; flex-shrink: 1; flex-basis: 500px; */
+
+  /* flex-basis 기본 width, height default 값 설정 */
+
+  /* flex-grow는 아이템이 flex-basis의 값보다 커질 수 있는지를 결정하는 속성이예요. */
+  /* flex-grow(유연하게 늘리기)에는 숫자값이 들어가는데, 몇이든 일단 0보다 큰 값이 세팅이 되면 해당 아이템이 유연한(Flexible) 박스로 변하고 원래의 크기보다 커지며 빈 공간을 메우게 됩니다. */
+
+  /* flex-shrink는 flex-grow와 쌍을 이루는 속성으로, 아이템이 flex-basis의 값보다 작아질 수 있는지를 결정합니다. */
+  /* flex-shrink에는 숫자값이 들어가는데, 몇이든 일단 0보다 큰 값이 세팅이 되면 해당 아이템이 유연한(Flexible) 박스로 변하고 flex-basis보다 작아집니다. */
+}
+
+@media screen and (max-width: mediaQuery) {
+  .container {
+    flex-direction: column;
+  }
+}
