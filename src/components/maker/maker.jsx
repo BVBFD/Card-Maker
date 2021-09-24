@@ -12,12 +12,12 @@ const Maker = ({ authService }) => {
             id: `1`,
             name: 'Mr.Lee1',
             company: 'Samsung',
-            theme: 'light',
+            theme: 'dark',
             title: 'Software Engineer',
             email: 'lsevina126@gmail.com',
             message: 'go for it',
             fileName: 'Lee Seong Eun',
-            fileURL: ''
+            fileURL: null
         },
         {
             id: `2`,
@@ -28,18 +28,18 @@ const Maker = ({ authService }) => {
             email: 'lsevina126@gmail.com',
             message: 'go for it',
             fileName: 'Lee Seong Eun',
-            fileURL: ''
+            fileURL: 'ellie.png'
         },
         {
             id: `3`,
             name: 'Mr.Lee3',
             company: 'Samsung',
-            theme: 'light',
+            theme: 'colorful',
             title: 'Software Engineer',
             email: 'lsevina126@gmail.com',
             message: 'go for it',
             fileName: 'Lee Seong Eun',
-            fileURL: ''
+            fileURL: null
         }
     ]); 
     const history = useHistory();
