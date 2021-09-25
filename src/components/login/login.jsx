@@ -1,27 +1,26 @@
-import React, { useEffect } from 'react'
-import { useHistory } from 'react-router';
-import Footer from '../footer/footer'
-import Header from '../header/header'
-import styles from './styles.module.css';
-
+import React, { useEffect } from "react";
+import { useHistory } from "react-router";
+import Footer from "../footer/footer";
+import Header from "../header/header";
+import styles from "./styles.module.css";
 
 const Login = ({ authService }) => {
   const history = useHistory();
   const goToMaker = (userId) => {
     history.push({
-      pathname: '/maker',
-      state: {id: userId}, 
+      pathname: "/maker",
+      state: { id: userId },
     });
   };
 
   const onLogin = (event) => {
     authService
       .login(event.target.textContent)
-      .then(data => goToMaker(data.user.uid))
+      .then((data) => goToMaker(data.user.uid))
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       });
-  }
+  };
 
   useEffect(() => {
     authService.onAuthChange((user) => {
@@ -31,21 +30,25 @@ const Login = ({ authService }) => {
 
   return (
     <section className={styles.login}>
-      <Header/>
+      <Header />
       <section>
         <h1>Login</h1>
         <ul className={styles.list}>
           <li className={styles.item}>
-            <button className={styles.button} onClick={onLogin}>Google</button>
+            <button className={styles.button} onClick={onLogin}>
+              Google
+            </button>
           </li>
           <li className={styles.item}>
-            <button className={styles.button} onClick={onLogin}>Github</button>
+            <button className={styles.button} onClick={onLogin}>
+              Github
+            </button>
           </li>
         </ul>
       </section>
-      <Footer/>
+      <Footer />
     </section>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
