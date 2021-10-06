@@ -10,6 +10,23 @@ class CardRepository {
     onValue(query, (snapshot) => {
       const value = snapshot.val();
       value && onUpdate(value);
+      //  mdn short-circuit evaluation 참조.
+      // 처음 data가 false면 뒷 부분은 실행조차 되지 않는다.
+      // data && ~ 추가해서 false 판정뒤 null이 아닌 false라는 object의 일종으로 변환해주어야
+      // previewPart.jsx {Object.keys(cards).map ~~ 이 부분이 실행 될수 있다.
+
+      // function A(){ console.log('called A'); return false; }
+      // function B(){ console.log('called B'); return true; }
+      // console.log( A() && B() );
+      // > "called A"
+      // > false
+
+      // function A(){ console.log('called A'); return true; }
+      // function B(){ console.log('called B'); return false; }
+      // console.log( A() && B() );
+      // > "called A"
+      // > "called B"
+      // > false
     });
     return () => off(query);
   }

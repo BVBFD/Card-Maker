@@ -24,9 +24,11 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       setCards(cards);
     });
     return () => stopSync();
-    // 컴포넌트가 unmount되었을때 (더이상 보여지지 않을 때)
-    // 마지막으로 마무리하고 싶다면 useEffect에서 어떤 함수를
-    // return 하게 되면 리액트가 알아서 리턴한 함수를 자동으로 호출!
+    // 그냥 stopSync() 라고 사용하면 안된다.
+    // useEffect cleanUp 함수를 return stopSync(); 라고 쓰게 되면
+    // 마운트 (컴포넌트가 등장하자마자) 실행됨.
+    // 그래서 () => stopSync(); 이런 식으로 cleanUp함수를 정의해야
+    // 언마운트 되었을때 실행되게 된다.
   }, [userId, cardRepository]);
 
   useEffect(() => {
