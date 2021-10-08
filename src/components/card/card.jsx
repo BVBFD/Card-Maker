@@ -1,8 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./card.module.css";
 
 const DEFAULT_IMAGE = "/images/default_logo.png";
-const Card = ({ card }) => {
+const Card = memo(({ card }) => {
+  // memo를 설정하게 되면 다음 렌더링이 일어날 때 props가 같다면
+  // React는 메모이징된 내용을 재사용 한다.
   const { name, company, title, email, message, theme, fileURL } = card;
   const url = fileURL || DEFAULT_IMAGE;
   return (
@@ -17,7 +19,7 @@ const Card = ({ card }) => {
       </div>
     </li>
   );
-};
+});
 
 function getStyles(theme) {
   switch (theme) {

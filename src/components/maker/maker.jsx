@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import Editor from "../editor/editor";
 import Footer from "../footer/footer";
@@ -12,9 +12,12 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   const [userId, setUserId] = useState(historyState && historyState.id);
   const [cards, setCards] = useState({});
 
-  const onLogout = () => {
+  const onLogout = useCallback(() => {
     authService.logout();
-  };
+  }, [authService]);
+  // useCallback 업데이트 렌더링 될때마다 함수 생성하는 것이 아닌
+  // 기존의 만들어진 함수를 재사용 하겠다.
+  // 단, authService가 업데이트 될때 다시 함수를 새로 만든다.
 
   useEffect(() => {
     if (!userId) {
